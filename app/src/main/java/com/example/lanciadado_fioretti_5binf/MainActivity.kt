@@ -13,6 +13,7 @@ import androidx.core.view.WindowInsetsCompat
 import com.example.lanciadado_fioretti_5binf.R
 import com.example.lanciadado_fioretti_5binf.secondActivity
 import android.content.Intent
+import android.util.Log
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -26,6 +27,7 @@ class MainActivity : AppCompatActivity() {
             mioToast.show()
 
             val mioRandom = estraiNumero()
+            Log.d("MainActivity", "Random: " + mioRandom)
             lanciaIntent(mioRandom)
         }
         var txtTitle = findViewById<TextView>(R.id.textViewTitle)

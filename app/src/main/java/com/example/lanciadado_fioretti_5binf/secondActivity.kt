@@ -12,6 +12,10 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 
 class secondActivity : AppCompatActivity() {
+
+    private lateinit var txtNumber: TextView
+    private lateinit var imgDice: ImageView
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -22,14 +26,21 @@ class secondActivity : AppCompatActivity() {
             val mioToast = Toast.makeText(this, "RISULTATO", Toast.LENGTH_LONG)
             mioToast.show()
         }
-        var txtNumber = findViewById<TextView>(R.id.textViewNumber)
-        var imgView = findViewById<ImageView>(R.id.ImageViewDado)
-        val mioRandom = intent.getIntExtra("NUMERO", -1)
-        }
 
-        private fun lanciaIntent(mioRandom: Int){
-            val mioIntent = Intent(this, secondActivity::class.java)
-            mioIntent.putExtra("NUMERO", mioRandom)
-            startActivity(mioIntent)
+        txtNumber = findViewById<TextView>(R.id.textViewNumber)
+        imgDice = findViewById<ImageView>(R.id.ImageViewDado)
+        val randomNumber = intent.getIntExtra("NUMERO", -1)
+
+        txtNumber.text = randomNumber.toString()
+        val imgDiceResources = when(randomNumber){
+            1 -> R.drawable.dice_face_1
+            2 -> R.drawable.dice_face_2
+            3 -> R.drawable.dice_face_3
+            4 -> R.drawable.dice_face_4
+            5 -> R.drawable.dice_face_5
+            else -> {R.drawable.dice_face_6}
+        }
+        imgDice.setImageResource(imgDiceResources)
+
         }
     }
