@@ -11,6 +11,7 @@ class secondActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_second)
+
         val numeroEstratto = intent.getIntExtra("NUMERO", -1)
         }
     }
