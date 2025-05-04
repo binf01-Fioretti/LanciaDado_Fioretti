@@ -24,6 +24,9 @@ class MainActivity : AppCompatActivity() {
         btnroll.setOnClickListener {
             val mioToast = Toast.makeText(this, "DADO LANCIATO", Toast.LENGTH_LONG)
             mioToast.show()
+
+            val mioRandom = estraiNumero()
+            lanciaIntent(mioRandom)
         }
         var txtTitle = findViewById<TextView>(R.id.textViewTitle)
         var imgView = findViewById<ImageView>(R.id.ImageViewDado)

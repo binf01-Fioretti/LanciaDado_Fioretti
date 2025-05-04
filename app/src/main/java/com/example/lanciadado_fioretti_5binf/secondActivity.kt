@@ -12,6 +12,6 @@ class secondActivity : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.activity_second)
 
-        val numeroEstratto = intent.getIntExtra("NUMERO", -1)
+        val mioRandom = intent.getIntExtra("NUMERO", -1)
         }
     }
