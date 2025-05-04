@@ -13,7 +13,7 @@ class thirdActivity : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.activity_third)
 
-        val risultato = intent.getIntExtra("RISULTATO", false)
+        val risultato = intent.getBooleanExtra("RISULTATO", false)
         val txtRisultato = findViewById<TextView>(R.id.textViewRisultato)
 
         if(risultato){
