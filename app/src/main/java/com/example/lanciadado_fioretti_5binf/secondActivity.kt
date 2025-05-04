@@ -21,15 +21,21 @@ class secondActivity : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.activity_second)
 
+        txtNumber = findViewById<TextView>(R.id.textViewNumber)
+        imgDice = findViewById<ImageView>(R.id.ImageViewDado)
+        val randomNumber = intent.getIntExtra("NUMERO", -1)
+
         val btnRisultato = findViewById<Button>(R.id.buttonRisultato)
         btnRisultato.setOnClickListener {
             val mioToast = Toast.makeText(this, "RISULTATO", Toast.LENGTH_LONG)
             mioToast.show()
-        }
 
-        txtNumber = findViewById<TextView>(R.id.textViewNumber)
-        imgDice = findViewById<ImageView>(R.id.ImageViewDado)
-        val randomNumber = intent.getIntExtra("NUMERO", -1)
+            var risultato = false
+            if(randomNumber % 2 == 0){ // Se è un numero pari hai vinto
+                risultato = true
+            }
+            lanciaIntent(risultato)
+        }
 
         txtNumber.text = randomNumber.toString()
         val imgDiceResources = when(randomNumber){
@@ -42,5 +48,11 @@ class secondActivity : AppCompatActivity() {
         }
         imgDice.setImageResource(imgDiceResources)
 
+        }
+
+        private fun lanciaIntent(risultato: Boolean){
+            val mioIntent = Intent(this, thirdActivity::class.java)
+            mioIntent.putExtra("RISULTATO", risultato)
+            startActivity(mioIntent)
         }
     }
